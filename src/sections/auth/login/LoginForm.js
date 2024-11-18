@@ -83,33 +83,82 @@ export default function LoginForm() {
     <>
       <Stack spacing={3}>
         <ThemeProvider theme={theme}>
-          <TextField
-            name="email"
-            label="Email"
-            color="success"
-            onChange={(e) => setEmail(e.target.value)}
-            variant="outlined"
-          />
+        <TextField
+  name="email"
+  label="Email"
+  color="success"
+  onChange={(e) => setEmail(e.target.value)}
+  variant="outlined"
+  InputLabelProps={{
+    style: { color: 'white' }, // Change label color to white by default
+  }}
+  InputProps={{
+    style: { color: 'white' }, // Change input text color to white by default
+  }}
+  sx={{
+    '& .MuiInputLabel-root': {
+      color: 'white', // Default label color
+      '&.Mui-focused': {
+        color: 'white', // Label color on focus
+      },
+    },
+    '& .MuiInputBase-root': {
+      color: 'white', // Default input text color
+      '&:hover': {
+        color: 'white', // Input text color on hover
+      },
+      '&.Mui-focused': {
+        color: 'white', // Input text color on focus
+      },
+    },
+  }}
+/>
+
         </ThemeProvider>
         {/* <TextField name="email" label="Email" color="success"  onChange={(e)=>setEmail(e.target.value)} sx={{ input: { color: 'success' }  }} /> */}
         <ThemeProvider theme={theme}>
-          <TextField
-            name="password"
-            label="password"
-            color="success"
-            onChange={(e) => setPassword(e.target.value)}
-            variant="outlined"
-            type={showPassword ? 'text' : 'password'}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end" sx={{}}>
-                  <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                    <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
+        <TextField
+  name="password"
+  label="Password"
+  color="success"
+  onChange={(e) => setPassword(e.target.value)}
+  variant="outlined"
+  type={showPassword ? 'text' : 'password'}
+  InputProps={{
+    endAdornment: (
+      <InputAdornment position="end">
+        <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+          <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
+        </IconButton>
+      </InputAdornment>
+    ),
+    style: { color: 'white' }, // Change input text color to white by default
+  }}
+  InputLabelProps={{
+    style: { color: 'white' }, // Change label color to white by default
+  }}
+  sx={{
+    '& .MuiInputLabel-root': {
+      color: 'white', // Default label color
+      '&.Mui-focused': {
+        color: 'white', // Label color on focus
+      },
+    },
+    '& .MuiInputBase-root': {
+      color: 'white', // Default input text color
+      '&:hover': {
+        color: 'white', // Input text color on hover
+      },
+      '&.Mui-focused': {
+        color: 'white', // Input text color on focus
+      },
+    },
+    '& .MuiIconButton-root': {
+      color: 'white', // Change icon button color to white
+    },
+  }}
+/>
+
         </ThemeProvider>
       </Stack>
 

@@ -16,6 +16,8 @@ import ViewUpcoming from './pages/ViewUpcoming/ViewUpcoming';
 import BreakfastMenu from './pages/BreakfastMenu/BreakfastMenu';
 import DinnerMenu from './pages/DinnerMenu/DinnerMenu';
 import DailySpecials from './pages/DailySpecials/DailySpecials';
+import Video from './pages/Video/Video';
+import Contact from './pages/Contact/Contact';
 
 // ----------------------------------------------------------------------
 export default function Router() {
@@ -30,6 +32,8 @@ export default function Router() {
         { path: 'breakfast_menu', element: <BreakfastMenu /> },
         { path: 'dinner_menu', element: <DinnerMenu /> },
         { path: 'daily_specials', element: <DailySpecials /> },
+        { path: 'video', element: <Video /> },
+        { path: 'contact', element: <Contact /> },
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'createpackage', element: <CreatePackage /> },
         { path: 'viewpackage', element: <ViewPackage /> },
