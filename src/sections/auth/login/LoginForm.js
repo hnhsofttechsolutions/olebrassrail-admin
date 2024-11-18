@@ -162,7 +162,7 @@ export default function LoginForm() {
         </ThemeProvider>
       </Stack>
 
-      <LoadingButton
+      {/* <LoadingButton
         loading={loader}
         loadingPosition="start"
         fullWidth
@@ -174,7 +174,28 @@ export default function LoginForm() {
         onClick={landlogin}
       >
         Login
-      </LoadingButton>
+      </LoadingButton> */}
+      <LoadingButton
+  loading={loader}
+  loadingPosition="start"
+  fullWidth
+  size="large"
+  type="submit"
+  variant="contained"
+  color="success"
+  sx={{
+    marginTop: 5,
+    color: 'white',
+    '&.MuiLoadingButton-loading': {
+      backgroundColor: '#D32D0B', // Green color for success
+      color: 'white', // Ensure the text color is white
+    },
+  }}
+  onClick={landlogin}
+>
+  Login
+</LoadingButton>
+
     </>
   );
 }

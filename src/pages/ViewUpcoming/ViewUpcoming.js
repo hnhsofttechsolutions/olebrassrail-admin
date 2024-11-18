@@ -106,7 +106,7 @@ export default function ViewUpcoming() {
           Upcoming Event
           </Typography>
           <Button onClick={handleOpen} variant="contained"  sx={{ backgroundColor: '#D32D0B' }} startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Iamge
+            New Image
           </Button>
         </Stack>
 
