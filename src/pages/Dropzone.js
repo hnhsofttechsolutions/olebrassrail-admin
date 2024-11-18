@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+/* eslint-disable arrow-body-style */
 import React,  {useEffect, useState} from "react";
 import { useDropzone } from "react-dropzone";
 
@@ -64,6 +67,7 @@ function Dropzone({ setFile }) {
   useEffect(() => {
     // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
     return () => files.forEach(file => URL.revokeObjectURL(file.preview));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

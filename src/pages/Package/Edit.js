@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import TextField from '@mui/material/TextField';

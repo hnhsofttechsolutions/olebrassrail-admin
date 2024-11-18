@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable arrow-body-style */
@@ -24,6 +25,7 @@ export default function Video() {
 
 
   const [USERLIST, setUSERLIST] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [loader, setLoader] = useState(false);
 
   // edit

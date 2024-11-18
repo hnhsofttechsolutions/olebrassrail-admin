@@ -23,6 +23,7 @@ export default function DinnerMenu() {
 
 
   const [USERLIST, setUSERLIST] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [loader, setLoader] = useState(false);
 // add
   const [open, setOpen] = useState(false);

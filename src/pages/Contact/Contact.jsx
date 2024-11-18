@@ -13,7 +13,6 @@ const Contact = () => {
   const [imageB1, setImageB1] = useState(null);
   const [imageB2, setImageB2] = useState(null);
   const [loader, setLoader] = useState(false);
-  const [USERLIST, setUSERLIST] = useState([]);
 
   const handleImageChange = (e, setImage, setImageFile) => {
     const file = e.target.files[0];
