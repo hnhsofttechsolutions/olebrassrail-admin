@@ -55,7 +55,7 @@ export default function DashboardAppPage() {
   return (
     <>
       <Helmet>
-        <title> Dashboard | Olebrassrail </title>
+        <title> Dashboard | Ole brass rail </title>
       </Helmet>
 
       <Container maxWidth="xl">

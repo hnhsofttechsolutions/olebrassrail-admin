@@ -18,6 +18,7 @@ import DinnerMenu from './pages/DinnerMenu/DinnerMenu';
 import DailySpecials from './pages/DailySpecials/DailySpecials';
 import Video from './pages/Video/Video';
 import Contact from './pages/Contact/Contact';
+import Queries from './pages/Queries/Queries';
 
 // ----------------------------------------------------------------------
 export default function Router() {
@@ -34,6 +35,7 @@ export default function Router() {
         { path: 'daily_specials', element: <DailySpecials /> },
         { path: 'video', element: <Video /> },
         { path: 'contact', element: <Contact /> },
+        { path: 'queries', element: <Queries /> },
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'createpackage', element: <CreatePackage /> },
         { path: 'viewpackage', element: <ViewPackage /> },

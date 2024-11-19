@@ -115,7 +115,7 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact | Olebrassrail </title>
+        <title>Contact | Ole brass rail </title>
       </Helmet>
       <Box sx={{ maxWidth: 600, margin: 'auto', padding: 2 }}>
         <Typography variant="h4" gutterBottom>

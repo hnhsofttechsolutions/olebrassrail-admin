@@ -69,6 +69,8 @@ export default function Nav({ openNav, onCloseNav }) {
   //   profile();
   // }, [profile]);
 
+
+
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive('up', 'lg');

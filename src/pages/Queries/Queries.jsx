@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
+
 import { Helmet } from 'react-helmet-async';
 import { filter } from 'lodash';
 import { useEffect, useState, useCallback } from 'react';
@@ -16,12 +19,15 @@ import {
   Typography,
   TableContainer,
   TablePagination,
+  Button,
+  Box,
   // Button,
 } from '@mui/material';
 // import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import Modal from '@mui/material/Modal';
 // components
 import Swal from 'sweetalert2';
 import Iconify from '../../components/iconify';
@@ -36,11 +42,11 @@ import { UserListHead } from '../../sections/@dashboard/user';
 const TABLE_HEAD = [
   { id: 'Id', label: 'Id', alignRight: false },
   { id: 'name', label: 'Name', alignRight: false },
-  { id: 'price', label: 'Price' },
-  { id: 'time', label: 'Time', alignRight: false },
-  { id: 'period', label: 'Period', alignRight: false },
-  { id: 'Desc', label: 'Description', alignRight: false },
-  { id: 'action', label: 'Action', alignCenter: true },
+  { id: 'email', label: 'Email' },
+  { id: 'message', label: 'Message', alignRight: false },
+  { id: 'phone_no', label: 'Phone Number', alignRight: false },
+//   { id: 'Desc', label: 'Description', alignRight: false },
+//   { id: 'action', label: 'Action', alignCenter: true },
 ];
 
 // ----------------------------------------------------------------------
@@ -74,8 +80,18 @@ function applySortFilter(array, comparator, query) {
   }
   return stabilizedThis.map((el) => el[0]);
 }
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: "80%",
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+};
 
-const ViewPackage = () => {
+const Queries = () => {
   const navigate = useNavigate();
   const [page, setPage] = useState(0);
 
@@ -117,7 +133,7 @@ const ViewPackage = () => {
     setLoader(true);
 
     instance
-      .get('package')
+      .get('admin/view/contact/info')
       .then((response) => {
         setLoader(false);
         setUSERLIST(response?.data?.data);
@@ -134,47 +150,57 @@ const ViewPackage = () => {
     viewpackage();
   }, [viewpackage]);
 
-  const delet = (id) => {
-    setLoader(true);
-    try {
-      instance.delete(`package/${id}`).then((response) => {
-        // setMovie(response.data);
-        console.log(response, 'user =======');
-        if (response?.data.status === true) {
-          setLoader(false);
-          Swal.fire({
-            title: 'Good job! ',
-            text: 'Your User deleted successFully',
-            icon: 'success',
-            button: 'Ok',
-          });
-          viewpackage();
-        } else {
-          setLoader(false);
-        }
-      });
-    } catch (error) {
-      setLoader(false);
-      console.log(error, ' user error');
-      Swal.fire({
-        title: 'Some Thing Went Wrong! ',
-        text: error?.message,
-        icon: 'danger',
-        button: 'Ok',
-      });
-    }
-  };
+//   const delet = (id) => {
+//     setLoader(true);
+//     try {
+//       instance.delete(`package/${id}`).then((response) => {
+//         // setMovie(response.data);
+//         console.log(response, 'user =======');
+//         if (response?.data.status === true) {
+//           setLoader(false);
+//           Swal.fire({
+//             title: 'Good job! ',
+//             text: 'Your User deleted successFully',
+//             icon: 'success',
+//             button: 'Ok',
+//           });
+//           viewpackage();
+//         } else {
+//           setLoader(false);
+//         }
+//       });
+//     } catch (error) {
+//       setLoader(false);
+//       console.log(error, ' user error');
+//       Swal.fire({
+//         title: 'Some Thing Went Wrong! ',
+//         text: error?.message,
+//         icon: 'danger',
+//         button: 'Ok',
+//       });
+//     }
+//   };
+
+const [open, setOpen] = useState(false);
+const handleOpen = () => setOpen(true);
+const handleClose = () => setOpen(false);
+const [Modalmessage, setmodalmessage] = useState([]);
+
+const handleMessageOpen = (data)=>{
+    handleOpen(true)
+    setmodalmessage(data)
+}
 
   return (
     <>
       <Helmet>
-        <title> Packages | Ole brass rail </title>
+        <title> Queries | Ole brass rail </title>
       </Helmet>
 
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Packages
+          Queries
           </Typography>
           {/* <Button variant="contained" sx={{ backgroundColor: '#D32D0B' }} startIcon={<Iconify icon="eva:plus-fill" />} onClick={()=>navigate('/dashboard/createpackage')}>
             Create Package
@@ -192,12 +218,14 @@ const ViewPackage = () => {
                   rowCount={USERLIST.length}
                   onRequestSort={handleRequestSort}
                 />
+
+
                 <TableBody>
                   <Backdrop sx={{ color: 'red', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={loader}>
                     <CircularProgress color="inherit" />
                   </Backdrop>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, price, time, period, desc } = row;
+                    const { id, name, email, message, phone_no } = row;
 
                     return (
                       <TableRow hover key={id} tabIndex={-1}>
@@ -205,30 +233,37 @@ const ViewPackage = () => {
                           <Typography variant="subtitle2">{id}</Typography>
                         </TableCell>
 
-                        <TableCell align="left" style={{ width: '20%' }}>
+                        <TableCell align="left" style={{ width: '10%' }}>
                           {name}
                         </TableCell>
 
                         <TableCell align="left" style={{ width: '10%' }}>
-                          {price}
+                          {email}
                         </TableCell>
-                        <TableCell align="left" style={{ width: '10%' }}>
-                          {time}
+                        <TableCell align="left" style={{ width: '20%' ,position:'relative'}}>
+                          {message?.slice(0,20)}....
+                          <Button onClick={()=>handleMessageOpen(row)} style={{
+                            position:'absolute',
+                            right:'0',
+                            top:"25%",
+                          }}>
+                          view
+                          </Button>
                         </TableCell>
-                        <TableCell align="left" style={{ width: '10%' }}>
-                          {period}
+                        <TableCell align="left" style={{ width: '13%' }}>
+                          {phone_no}
                         </TableCell>
-                        <TableCell align="left" style={{ width: '30%' }}>
+                        {/* <TableCell align="left" style={{ width: '30%' }}>
                           {desc}
-                        </TableCell>
-                        <TableCell style={{ width: '10%', display: 'flex' }}>
+                        </TableCell> */}
+                        {/* <TableCell style={{ width: '10%', display: 'flex' }}>
                           <MenuItem sx={{ color: 'error.main' }} onClick={() => navigate(`/dashboard/edit/${id}`)}>
                             <Iconify icon={'eva:eye-outline'} color="#D32D0B" sx={{}} />
                           </MenuItem>
                           <MenuItem sx={{ color: 'error.main' }} onClick={() => delet(id)}>
                             <Iconify icon={'eva:trash-2-outline'} sx={{}} />
                           </MenuItem>
-                        </TableCell>
+                        </TableCell> */}
                       </TableRow>
                     );
                   })}
@@ -277,8 +312,60 @@ const ViewPackage = () => {
           />
         </Card>
       </Container>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+    >
+          
+            
+            <Box sx={style}>
+            <Box onClick={handleClose} sx={{ position: 'absolute', top: 10, right: 10, cursor: 'pointer' }}>
+                X
+            </Box>
+            <UserListHead
+                  order={order}
+                  orderBy={orderBy}
+                  headLabel={TABLE_HEAD}
+                  rowCount={USERLIST.length}
+                  onRequestSort={handleRequestSort}
+                />
+
+<TableBody>
+                  <Backdrop sx={{ color: 'red', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={loader}>
+                    <CircularProgress color="inherit" />
+                  </Backdrop>
+                 
+                      <TableRow hover key={"id"} tabIndex={-1}>
+                        <TableCell style={{ width: '10%' }}>
+                          <Typography variant="subtitle2">{Modalmessage.id}</Typography>
+                        </TableCell>
+
+                        <TableCell align="left" style={{ width: '10%' }}>
+                          {Modalmessage.name}
+                        </TableCell>
+
+                        <TableCell align="left" style={{ width: '10%' }}>
+                          {Modalmessage.email}
+                        </TableCell>
+                        <TableCell align="left" style={{ width: '20%'}}>
+                          {Modalmessage.message}
+                        </TableCell>
+                        <TableCell align="left" style={{ width: '13%' }}>
+                          {Modalmessage.phone_no}
+                        </TableCell>
+                      </TableRow>
+                </TableBody>
+        </Box>
+
+    </Modal>
     </>
   );
+
+
+
 };
 
-export default ViewPackage;
+export default Queries;

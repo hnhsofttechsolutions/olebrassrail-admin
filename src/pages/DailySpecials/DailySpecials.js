@@ -95,7 +95,7 @@ export default function DailySpecials() {
   return (
     <>
       <Helmet>
-        <title>Daily Specials Menu | Olebrassrail </title>
+        <title>Daily Specials Menu | Ole brass rail </title>
       </Helmet>
 
       <Container>

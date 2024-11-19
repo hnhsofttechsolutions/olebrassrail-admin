@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Create a new Axios instance
 export const instance = axios.create({
-  baseURL: `https://olebrassrailapi.dev-nuh.xyz/api/`,
+  baseURL: `https://Olebrassrailapi.dev-nuh.xyz/api/`,
 });
 
 instance.interceptors.request.use(

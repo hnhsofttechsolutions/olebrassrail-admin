@@ -116,7 +116,7 @@ const Edit = () => {
   return (
     <>
       <Helmet>
-        <title> Update Package | Olebrassrail </title>
+        <title> Update Package | Ole brass rail </title>
       </Helmet>
       <Backdrop sx={{ color: 'red', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={loader}>
         <CircularProgress color="inherit" />

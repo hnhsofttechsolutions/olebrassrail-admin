@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState,useCallback } from 'react';
 // @mui
 import { alpha } from '@mui/material/styles';
@@ -98,7 +99,7 @@ const Navigate = useNavigate();
             fontSize: '1rem',
             fontFamily: 'fantasy',
             letterSpacing: "2px"}}>
-        Olebrassrail
+        Ole brass rail
         </Typography>
         {/* {token ? (
           <Avatar src='/favicon/favicon.ico' alt="adimn Pic" />
@@ -129,11 +130,11 @@ const Navigate = useNavigate();
         <Box sx={{ my: 1.5, px: 2.5 }}>
           {token ? (
             <Typography variant="subtitle2" noWrap>
-               Olebrassrail
+               Ole brass rail
             </Typography>
           ) : (
             <Typography variant="subtitle2" noWrap>
-              Olebrassrail
+              Ole brass rail
             </Typography>
           )}
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { styled } from '@mui/material/styles';
@@ -51,7 +52,7 @@ export default function LoginPage() {
   return (
     <>
       <Helmet>
-        <title> Login | Olebrassrail </title>
+        <title> Login | Ole brass rail </title>
       </Helmet>
 
       <StyledRoot>

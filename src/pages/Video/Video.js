@@ -67,7 +67,7 @@ export default function Video() {
   return (
     <>
       <Helmet>
-        <title>Video | Olebrassrail </title>
+        <title>Video | Ole brass rail </title>
       </Helmet>
 
       <Container>

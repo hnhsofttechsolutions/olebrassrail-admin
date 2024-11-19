@@ -84,7 +84,7 @@ export default function Gallery() {
   return (
     <>
       <Helmet>
-        <title> gallery | Olebrassrail </title>
+        <title> gallery | Ole brass rail </title>
       </Helmet>
 
       <Container>
