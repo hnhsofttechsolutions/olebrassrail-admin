@@ -84,7 +84,7 @@ export default function Gallery() {
   return (
     <>
       <Helmet>
-        <title> gallery | The Company </title>
+        <title> gallery | Olebrassrail </title>
       </Helmet>
 
       <Container>

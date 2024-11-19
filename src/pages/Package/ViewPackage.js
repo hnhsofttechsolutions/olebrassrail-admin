@@ -168,7 +168,7 @@ const ViewPackage = () => {
   return (
     <>
       <Helmet>
-        <title> Packages | The Company </title>
+        <title> Packages | Olebrassrail </title>
       </Helmet>
 
       <Container>

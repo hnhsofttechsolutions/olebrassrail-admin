@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 // @mui
-// import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { Avatar, Box, Drawer, Typography } from '@mui/material';
 import axios from 'axios';
 // mock
@@ -20,14 +20,14 @@ import image from '../../../components/logo/logo.png';
 
 const NAV_WIDTH = 281;
 
-// const StyledAccount = styled('div')(({ theme }) => ({
-//   display: 'flex',
-//   alignItems: 'center',
-//   padding: theme.spacing(2, 2.5),
-//   borderRadius: Number(theme.shape.borderRadius) * 1.5,
-//   backgroundColor: alpha(theme.palette.red[500], 0.12),
-//   backgroundColor: 'red',
-// }));
+const StyledAccount = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: theme.spacing(2, 2.5),
+  borderRadius: Number(theme.shape.borderRadius) * 1.5,
+  backgroundColor: "#fff !important",
+
+}));
 
 // ----------------------------------------------------------------------
 
@@ -117,7 +117,7 @@ export default function Nav({ openNav, onCloseNav }) {
           PaperProps={{
             sx: {
               width: NAV_WIDTH,
-              bgcolor: '#D32D0B',
+              // bgcolor: '#D32D0B',
               paddingRight: '3px',
               borderRightStyle: 'dashed',
             },

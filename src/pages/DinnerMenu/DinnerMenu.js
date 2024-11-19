@@ -95,7 +95,7 @@ export default function DinnerMenu() {
   return (
     <>
       <Helmet>
-        <title>Dinner Menu | The Company </title>
+        <title>Dinner Menu | Olebrassrail </title>
       </Helmet>
 
       <Container>

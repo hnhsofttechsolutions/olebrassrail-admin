@@ -97,7 +97,7 @@ export default function ViewUpcoming() {
   return (
     <>
       <Helmet>
-        <title> Upcoming Event | The Company </title>
+        <title> Upcoming Event | Olebrassrail </title>
       </Helmet>
 
       <Container>
