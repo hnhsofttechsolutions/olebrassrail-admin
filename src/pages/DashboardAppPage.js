@@ -11,18 +11,17 @@ import { AppWidgetSummary } from '../sections/@dashboard/app';
 
 export default function DashboardAppPage() {
   const [LenderCount, setLenderCount] = useState([]);
-  const [PackageCount, setPackageCount] = useState([]);
   const [, setLoader] = useState(false);
   const token = localStorage.getItem('accessToken');
 
   const user = useCallback(() => {
     setLoader(true);
     instance
-      .get('lender')
+      .get('admin/dashboard_counts')
       .then((response) => {
         setLoader(false);
-        setLenderCount(response?.data?.data?.length);
-        console.log(response, 'user api');
+        setLenderCount(response?.data);
+        console.log(response.data, 'user api');
       })
       .catch((error) => {
         setLoader(false);
@@ -31,27 +30,10 @@ export default function DashboardAppPage() {
     console.log(token);
   }, [token]);
 
-  const viewpackage = useCallback(() => {
-    setLoader(true);
-
-    instance
-      .get('package')
-      .then((response) => {
-        setLoader(false);
-        setPackageCount(response?.data?.data?.length);
-        console.log(response, 'series api');
-      })
-      .catch((error) => {
-        setLoader(false);
-        console.log(error);
-      });
-    console.log(token);
-  }, [token]);
 
   useEffect(() => {
     user();
-    viewpackage();
-  }, [user, viewpackage]);
+  }, [user]);
   return (
     <>
       <Helmet>
@@ -64,16 +46,26 @@ export default function DashboardAppPage() {
         </Typography>
 
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={6}>
-            <AppWidgetSummary title="Lender" total={LenderCount} icon={'ant-design:user'} />
+          <Grid item xs={12} sm={6} md={3}> 
+            <AppWidgetSummary title="Upcoming Events " total={LenderCount?.upcoming_event_count} icon={'material-symbols:event-upcoming-outline'} />
           </Grid>
-
-          <Grid item xs={12} sm={6} md={6}>
+          <Grid item xs={12} sm={6} md={3}> 
+            <AppWidgetSummary title="Break Fast Menu" total={LenderCount?.breakfast_event_count} icon="fluent-mdl2:breakfast" />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary
-              title="Package"
-              total={PackageCount}
+              title="Dinner Menu"
+              total={LenderCount.lunch_event_count}
               color="info"
-              icon={'eos-icons:subscriptions-created'}
+              icon="cil:dinner"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <AppWidgetSummary
+              title="Daily Specials"
+              total={LenderCount.special_event_count}
+              color="info"
+              icon="hugeicons:task-daily-01"
             />
           </Grid>
         </Grid>

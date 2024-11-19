@@ -59,7 +59,7 @@ const ViewUpcomingModal = ({ open,setOpen, handleClose,user }) => {
             if (status === true) {
               Swal.fire({
                 title: 'Good job!',
-                text: 'Gallery Successfully Created',
+                text: 'Upcoming Events Successfully Created',
                 icon: 'success',
                 button: 'Ok',
               });
