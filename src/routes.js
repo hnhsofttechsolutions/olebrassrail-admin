@@ -19,6 +19,7 @@ import DailySpecials from './pages/DailySpecials/DailySpecials';
 import Video from './pages/Video/Video';
 import Contact from './pages/Contact/Contact';
 import Queries from './pages/Queries/Queries';
+import ChangePassword from './pages/ChangePassword/ChangePassword';
 
 // ----------------------------------------------------------------------
 export default function Router() {
@@ -39,6 +40,7 @@ export default function Router() {
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'createpackage', element: <CreatePackage /> },
         { path: 'viewpackage', element: <ViewPackage /> },
+        { path: 'update', element: <ChangePassword /> },
         { path: 'edit/:id', element: <Edit /> },
       ],
     },
